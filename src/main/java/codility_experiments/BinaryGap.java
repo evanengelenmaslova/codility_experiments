@@ -43,12 +43,12 @@ public class BinaryGap {
 		//used to sort all binary gaps in order to pick the largest
 		TreeSet<Integer> counts = new TreeSet<>();
 
-		//make array of the test number, TODO optimise
+		//make array of the test number
 		char[] binaryTest = Integer.toBinaryString(N).toCharArray();
 		int[] binary = new int[binaryTest.length];
 		Arrays.setAll(binary, i -> Character.getNumericValue(binaryTest[i]));
 
-		//count 0 in the binary, when 1 is encoutered than add it to counts TreeSet
+		//count 0 in the binary, when 1 is encountered than add it to counts TreeSet
 		int currentCount = 0;
 		for (int i = 0; i < binary.length; i++) {
 			int element = binary[i];
