@@ -1,4 +1,4 @@
-package codility_experiments;
+package codility_experiments.iterations;
 
 import java.util.Arrays;
 import java.util.TreeSet;
@@ -40,18 +40,16 @@ public class BinaryGap {
 		// count of 0 between 1
 		int result = 0;
 
-		//used to sort all binary gaps in order to pick the largest
+		// used to sort all binary gaps in order to pick the largest
 		TreeSet<Integer> counts = new TreeSet<>();
 
-		//make array of the test number
-		char[] binaryTest = Integer.toBinaryString(N).toCharArray();
-		int[] binary = new int[binaryTest.length];
-		Arrays.setAll(binary, i -> Character.getNumericValue(binaryTest[i]));
+		String[] binaryStringArray = Integer.toBinaryString(N).split("(?!^)");
+		int[] binary = Arrays.stream(binaryStringArray).mapToInt(s -> Integer.valueOf(s).intValue()).toArray();
 
-		//count 0 in the binary, when 1 is encountered than add it to counts TreeSet
+		// count 0 in the binary, when 1 is encountered than add it to counts
+		// TreeSet
 		int currentCount = 0;
-		for (int i = 0; i < binary.length; i++) {
-			int element = binary[i];
+		for (int element : binary) {
 			if (element == 0) {
 				currentCount += 1;
 			} else if (element == 1) {
@@ -59,8 +57,7 @@ public class BinaryGap {
 				currentCount = 0;
 			}
 		}
-		result = counts.last();
-		return result;
+		return !counts.isEmpty() ? counts.last() : result;
 	}
 
 }
