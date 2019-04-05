@@ -21,7 +21,7 @@ public class FrogRiverOneTest {
 	@Test
 	public void shouldFindCorrectIndexWhenElementFoundTwise() {
 		int[] testedArray = { 1, 5, 3, 1, 4, 2, 3, 5, 4 };
-		assertEquals(7, FrogRiverOne.solution(5, testedArray));
+		assertEquals(5, FrogRiverOne.solution(5, testedArray));
 	}
 	
 	@Test
